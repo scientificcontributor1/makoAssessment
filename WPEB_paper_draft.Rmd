@@ -10,6 +10,12 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(pacman)
+### If JABBA is no installed on your computer install it with:
+# library(devtools)
+# install_github("jabbamodel/JABBA")
+### see more details at https://github.com/jabbamodel/JABBA
+p_load(JABBA, plyr, reshape2, ggplot2, viridis, RColorBrewer, ggsci)
 ```
 
 ## Abstract
@@ -26,6 +32,24 @@ This is the M&M
 #### Catch time-series
 IOTC data, reconstructed...
 
+
+```{r, echo=FALSE}
+NC <- read.csv("data/IOTC-2020-DATASETS-NCDB_080420.csv", header = T, stringsAsFactors = F)
+SMANC <- NC[which(NC$SpCde=="SMA"),]
+colnames(SMANC)[8]  <- "Year"
+colnames(SMANC)[29] <- "Catch"
+SMANC$Catch <- as.numeric(as.character(SMANC$Catch))
+SMANCYearGear <- ddply(SMANC, .(GrCde, Year), function(x) sum(x$Catch, na.rm=T))
+#SMANCYearGear <- rbind(SMANCYearGear, data.frame(GrCde="Total", ddply(SMANC, .(Year), function(x) sum(x$Catch, na.rm=T))))
+colnames(SMANCYearGear)[1] <- "Gear"
+colnames(SMANCYearGear)[3] <- "Catch"
+nb.cols <- length(unique(SMANCYearGear$Gear))
+mycolors <- colorRampPalette(brewer.pal(12, "Paired"))(nb.cols)
+p <- ggplot(SMANCYearGear, aes(x=Year, y=Catch, fill=Gear))+
+  geom_area()+
+  scale_fill_manual(values=mycolors)#scale_fill_lancet() #scale_fill_brewer(palette = brewer.pal(14, "RdYlBu")) #scale_fill_viridis(discrete = TRUE)
+p+theme_light()
+```
 #### Map of catch and effort by fleet by decades
 
 ### Catch per unit of effort data
@@ -65,9 +89,5 @@ This is the discussion
 
 
 
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
