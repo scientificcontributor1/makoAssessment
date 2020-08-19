@@ -22,6 +22,35 @@ This is the introduction
 ## Materials and Methods
 This is the M&M
 
+### Fisheries data
+#### Catch time-series
+IOTC data, reconstructed...
+
+#### Map of catch and effort by fleet by decades
+
+### Catch per unit of effort data
+
+#### Size frequencies
+
+### Biological data
+- Growth (VB parameters)
+- Intrinsic growth rate (see appendix A)
+- Lifespan
+- ...
+Make a table
+
+### Stock assessment model
+
+#### CMSY
+
+#### ELEFAN
+
+#### Yield per recruit
+
+#### JABBA
+
+
+
 
 ## Results
 These are the results
