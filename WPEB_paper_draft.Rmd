@@ -1,0 +1,44 @@
+---
+title: Preliminary Modelling for the Stock Assessment of Shortfin Mako Shark, Isurus
+  oxyrinchus
+author: A.E. Nieblas1, S. Bonhommeau2, A. Bennicci1, E. Anello1, E. Blondel1, A. Ellenbroek1,
+  M. Taconet1, J. Barde3, P. de Bruyn4, F. Fiorellato4. Lauren Nelson4, Emmanuel Chassot4,
+  Dan Fu4
+date: "8/19/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Abstract
+This is the abstract
+
+
+## Introduction
+This is the introduction
+
+## Materials and Methods
+This is the M&M
+
+
+## Results
+These are the results
+
+## Discussion
+This is the discussion
+
+## Appendix
+
+### Appendix A: Prior elicitation for the intrinsic population growth rate
+
+
+
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
