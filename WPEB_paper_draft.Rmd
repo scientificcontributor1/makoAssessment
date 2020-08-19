@@ -20,6 +20,7 @@ p_load(JABBA, plyr, reshape2, ggplot2, viridis, RColorBrewer, ggsci)
 
 ## Abstract
 This is the abstract
+Line added
 
 
 ## Introduction
@@ -51,6 +52,32 @@ p <- ggplot(SMANCYearGear, aes(x=Year, y=Catch, fill=Gear))+
 p+theme_light()
 ```
 #### Map of catch and effort by fleet by decades
+
+```{r, echo=FALSE}
+CECoastal <- read.csv("data/IOTC-2019-DATASETS-CECoastal.csv", header = T, stringsAsFactors = F)
+CECoastalmelt <- melt(CECoastal, id.vars = colnames(CECoastal)[1:11])
+CESurface <- read.csv("data/IOTC-2019-DATASETS-CESurface.csv", header = T, stringsAsFactors = F)
+CESurfacemelt <- melt(CESurface, id.vars = colnames(CESurface)[1:11])
+CELongline <- read.csv("data/IOTC-2019-DATASETS-CESurface.csv", header = T, stringsAsFactors = F)
+CELonglinemelt <- melt(CELongline, id.vars = colnames(CELongline)[1:11])
+CETot <- rbind(CECoastalmelt, CELonglinemelt, CESurfacemelt)
+CESMATot <- CETot[which(CETot$variable=="SMA.MT"),]
+
+SMANC <- NC[which(NC$SpCde=="SMA"),]
+colnames(SMANC)[8]  <- "Year"
+colnames(SMANC)[29] <- "Catch"
+SMANC$Catch <- as.numeric(as.character(SMANC$Catch))
+SMANCYearGear <- ddply(SMANC, .(GrCde, Year), function(x) sum(x$Catch, na.rm=T))
+#SMANCYearGear <- rbind(SMANCYearGear, data.frame(GrCde="Total", ddply(SMANC, .(Year), function(x) sum(x$Catch, na.rm=T))))
+colnames(SMANCYearGear)[1] <- "Gear"
+colnames(SMANCYearGear)[3] <- "Catch"
+nb.cols <- length(unique(SMANCYearGear$Gear))
+mycolors <- colorRampPalette(brewer.pal(12, "Paired"))(nb.cols)
+p <- ggplot(SMANCYearGear, aes(x=Year, y=Catch, fill=Gear))+
+  geom_area()+
+  scale_fill_manual(values=mycolors)#scale_fill_lancet() #scale_fill_brewer(palette = brewer.pal(14, "RdYlBu")) #scale_fill_viridis(discrete = TRUE)
+p+theme_light()
+```
 
 ### Catch per unit of effort data
 
