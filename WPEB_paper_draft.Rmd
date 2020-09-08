@@ -1,10 +1,63 @@
 ---
-title: Preliminary Modelling for the Stock Assessment of Shortfin Mako Shark, Isurus
-  oxyrinchus
-author: A.E. Nieblas1, S. Bonhommeau2, A. Bennicci1, E. Anello1, E. Blondel1, A. Ellenbroek1,
-  M. Taconet1, J. Barde3, P. de Bruyn4, F. Fiorellato4. Lauren Nelson4, Emmanuel Chassot4,
-  Dan Fu4
-date: "8/19/2020"
+title: |
+  Preliminary Modelling for the Stock Assessment of Shortfin Mako Shark, Isurus oxyrinchus
+subtitle: |
+  Showcasing the FAO SDG 14.4.1 Stock Monitoring Tool by applying one of its data-limited methods, CMSY, and comparing its results to JABBA.
+author: 
+  - A.E. Nieblas:
+      email: anne.nieblas@fao.org
+      institute: [FAO]
+      correspondence: true
+  - S. Bonhommeau:
+      email: sylvain.bonhommeau@ifremer.fr
+      institute: [IFREMERDOI]
+      correspondence: false
+  - A. Bennicci:
+      email: bennicci@fao.org
+      institute: [FAO]
+      correspondence: false
+  - E. Anello:
+      email: enrico.anelo@fao.org
+      institute: [FAO]
+      correspondence: false    
+  - E. Blondel:
+      email: emmanuel.blondel@fao.org
+      institute: [FAO]
+      correspondence: false
+  - A. Ellenbroek:
+      email: anton.ellenbroek@fao.org
+      institute: [FAO]
+      correspondence: false
+  - J. Barde:
+      email: julien.barde@ird.fr
+      institute: [IRD]
+      correspondence: false
+  - P. de Bruyn:
+      email: paul.de.bruyn@fao.org
+      institute: [IOTC]
+      correspondence: false
+  - F. Fiorellato:
+      email: fabio.fiorellato@fao.org
+      institute: [IOTC]
+      correspondence: false
+  - L Nelson:
+      email: alauren.nelson@fao.org
+      institute: [IOTC]
+      correspondence: false
+  - E. Chassot:
+      email: emmanuel.chassot@fao.org
+      institute: [IOTC]
+      correspondence: false  
+  - D. Fu: 
+      email: dan.fu@fao.org
+      institute: [IOTC]
+      correspondence: false
+institute:
+  - FAO: Food and Agriculture Organization
+  - IFREMERDOI: Ifremer DOI
+  - IOTC: Indian Ocean Tuna Commission
+abstract: |
+date: ""
 output: pdf_document
 ---
 
